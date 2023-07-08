@@ -101,3 +101,12 @@
   align-items: center;
   justify-content: center;
 }
+
+/* ******************************* */
+/* ************PRODUCT************ */
+/* ******************************* */
+
+.product-link {
+  text-decoration: none !important;
+  color: black !important;
+}

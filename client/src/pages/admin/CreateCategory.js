@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AdminMenu from "../../components/Layout/AdminMenu";
 import Layout from "../../components/Layout/Layout";
-import { useAuth } from "../../context/auth";
 import { toast } from "react-toastify";
 import axios from "axios";
 import CategoryForm from "../../components/Form/CategoryForm";
@@ -44,7 +43,7 @@ const CreateCategory = () => {
         { name: updatedName }
       );
       if (data.success) {
-        toast.success(data.message + "\n" + `${updatedName} is updated`);
+        toast.success(data.message + `\nto: ${updatedName}`);
         setSelected(null);
         setUpdatedName("");
         setVisible(false);
@@ -82,8 +81,8 @@ const CreateCategory = () => {
       const { data } = await axios.get(
         `${process.env.REACT_APP_API}/api/v1/category/get-category`
       );
-      if (data.success) {
-        setCategories(data.category);
+      if (data?.success) {
+        setCategories(data?.category);
       }
     } catch (error) {
       console.log(error);
